@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group</title>
 
+    <link rel="stylesheet" href="./styles/group.css">
     <link rel="stylesheet" href="./styles/global.css">
-
+    
     <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.min.css">
     <script src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
 
     <script>
@@ -28,42 +31,22 @@
       firebase.analytics();
     </script>
 
-    <script>
-      let username = window.localStorage.getItem('username')
-      if (username) window.location = './home.html?username='+username
+    <script defer src="./scripts/group.js"></script>
+    <script defer src="./scripts/global.js"></script>
+</head>
+<body>
 
-      function submitted (e) {
-        window.localStorage.setItem('username', document.getElementById('username').value)
-      }
-    </script>
+    <div id="header" class="orange darken-1"> 
+        <div id="nav">
+            <a href="./home.html" class="breadcrumb"><i class="material-icons">home</i></a>
+            <a href="#" class="breadcrumb" id="group_name"></a>
+        </div>
+        <button onclick="logout()" class="btn-flat bold"><b>Logout</b></button>
+    </div>
 
-    <style>
+    <div id="body">
 
-      body {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-      }
-
-      form {
-        width: 300px;
-        height: auto;
-        margin-top: 150px;
-      }
-
-    </style>
-
-
-  </head>
-  <body>
-
-    <form action="./home.html" onsubmit="submitted()">
-      <div class="input-field">
-        <label for="username">Username</label>
-        <input type="text" id="username" required>
-      </div>
-      <input type="submit" value="Go!" class="waves-effect waves-dark btn orange darken-1">
-    </form>
-  </body>
+    </div>
+    
+</body>
 </html>
